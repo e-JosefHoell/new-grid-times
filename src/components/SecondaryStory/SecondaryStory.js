@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { BREAKPOINTS, COLORS, QUERIES } from '../../constants';
 
 const SecondaryStory = ({ id, title, image, location, abstract }) => {
   return (
@@ -13,6 +14,7 @@ const SecondaryStory = ({ id, title, image, location, abstract }) => {
   );
 };
 
+
 const Wrapper = styled.article`
   display: grid;
   grid-template-areas:
@@ -21,6 +23,14 @@ const Wrapper = styled.article`
   gap: 4px 16px;
   grid-template-columns: 120px 1fr;
   color: var(--color-gray-900);
+
+  @media  (${QUERIES.tabletAndUp}) AND (max-width: ${BREAKPOINTS.desktopMin/16}rem) {
+    grid-template-columns: none;
+    grid-template-areas:
+      'image'
+      'heading'
+      'abstract';
+  }
 `;
 
 const Image = styled.img`
@@ -45,6 +55,13 @@ const Abstract = styled.p`
   grid-area: abstract;
   font-size: 1rem;
   white-space: pre-wrap;
+  
+  @media(${QUERIES.tabletAndUp}) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
 `;
 
 export default SecondaryStory;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { QUERIES } from '../../constants';
 
 const MainStory = ({
   id,
@@ -43,7 +44,14 @@ const Heading = styled.h2`
 const Abstract = styled.p`
   font-size: 1rem;
   margin-bottom: 1em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
   white-space: pre-wrap;
+  overflow: hidden;
+  -webkit-line-clamp: 8;
+  @media(${QUERIES.tabletOnly}) {
+    -webkit-line-clamp: 16;
+  }
 `;
 
 const Location = styled.span`

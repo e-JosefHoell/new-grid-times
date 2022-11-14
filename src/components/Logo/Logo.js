@@ -17,6 +17,7 @@ const Logo = (props) => {
 
 const Wrapper = styled.div`
   text-align: center;
+  grid-column: 2;
 `;
 
 const Link = styled.a`
